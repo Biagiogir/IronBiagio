@@ -1,3 +1,4 @@
+use bank;
 #1 Get the id values of the first 5 clients from district_id with a value equals to 1.
 select client_id
 from client
