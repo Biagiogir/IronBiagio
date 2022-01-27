@@ -6,13 +6,13 @@ from inventory
 where film_id = (select film_id from film where title = "Hunchback Impossible");
 #2 List all films whose length is longer than the average of all the films.
 select title, film_id, length from film
-where length > (select avg(length) from film)
+where length > (select avg(length) from film);
 
 #3 Use subqueries to display all actors who appear in the film Alone Trip.
 select actor_id, first_name, last_name from actor
 where actor_id in (select actor_id from film_actor
 where film_id = (select film_id from film where
-title = "Alone Trip"))
+title = "Alone Trip"));
 
 #4 Sales have been lagging among young families, and you wish to target all family movies
 # for a promotion.
@@ -20,7 +20,7 @@ title = "Alone Trip"))
 select title as "Family movies" from film
 where film_id in (select film_id from film_category
 where category_id = ( select category_id from category
-where name = "Family"))
+where name = "Family"));
 #5 Get name and email from customers from Canada using subqueries. Do the same with joins.
 # Note that to create a join, you will have to identify the correct tables 
 #with their primary keys and foreign keys, that will help you get the relevant information.
@@ -28,7 +28,7 @@ select first_name, last_name, email from customer
 where address_id in (select address_id from address
 where city_id in (select city_id from city
 where country_id = (select country_id from country
-where country = "Canada")))
+where country = "Canada")));
 
 select first_name, last_name, email from customer as a
 inner join address as b
